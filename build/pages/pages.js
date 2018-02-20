@@ -35,13 +35,10 @@ function create () {
         fs.copyFile(templatePath, pagesFolder + newFileName, err => {
           if (err) {
             console.log(err)
-          } else {
-            console.log(colors.green('La nouvelle page à été créée'))
-            console.log(colors.green.underline(newFileName + '\n'))
           }
         })
       }
-      compile()
+      console.log(colors.green(`${iterations} page${iterations > 1 ? 's ont' : ' a'} été créée${iterations > 1 ? 's' : ''}\n`))
     }
   })
 }
@@ -70,7 +67,6 @@ function compile () {
 
       console.log(colors.green('\nTout est okay !'))
       console.log(colors.green('(Les fichiers contenants des erreurs sont ignorés)\n'))
-      console.log(files)
       fs.writeFile(articlePath + articlesFile, stdout, err => {
         if (err) {
           console.log(err)
