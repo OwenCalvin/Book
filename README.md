@@ -1,7 +1,7 @@
 # Book, a vue book
 With Book you can create your own book simply, with 2 commands  
 ``` bash
-# Create one page:
+# Create one page
 npm run pages create
 
 # do it after creating, deleting or renaming a page file)
