@@ -1,8 +1,54 @@
-# Book
+# Book, a vue book
+With Book you can create your own book simply, with 2 commands  
+``` bash
+npm run pages create [n]  
 
-> A Vue Book
+# do it after creating, deleting or renaming a page file)
+npm run pages compile
+``` 
 
-## Build Setup
+## How it works ?
+Each Vue components (page) are loaded/unloaded dynamicaly. In a web client you can't use fs to get a component file so you need to reference it to a file...  
+**compile** command do it automaticaly, the function get all pages in the folder: *src/articles/pages/pages* and reference it into **Articles.js** (*src/articles/*) file (JSON format).  
+Then... *Loader.js* use this file to load view and page number, into Article.vue components (*/src/components/Article.vue*)
+
+## Costum your pages
+All pages can be customize, you can use sass, css, html, vue components, ... in your pages.  
+The default pages style are located into *src/articles/pages/style/page.scss*.  
+You can add your own and add it into the bottom of your page file  
+**Example:**
+``` scss
+<style lang="scss" scoped>
+  @import '../style/page.scss';
+</style>
+```
+
+## File location
+**Pages:**  
+*src/articles/pages/pages/*    
+
+**page.scss (pages default style):**  
+*src/articles/pages/style/page.scss*    
+
+**Article.vue (Where pages are loaded):**  
+*/src/components/Articles.js*  
+
+**Loader.js:**  
+*src/articles/pages/pages/Loader.js*   
+
+**Articles.js (do not touch this file):**  
+*src/articles/pages/Articles.js*   
+
+**App.vue (Main vue, and style):**  
+*src/App.vue*    
+
+**pages.js (Compiler, and pages creating tool):**  
+*/build/pages/pages.js*   
+
+**Template.vue (The default page, when you create some pages -> custom it):**  
+*/build/pages/Template.vue*
+
+## Commands
 
 ``` bash
 # install dependencies
