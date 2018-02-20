@@ -1,0 +1,12 @@
+$pageMargin: 30px;
+.page {
+  margin-left: $pageMargin;
+  padding-right: $pageMargin;
+  h1 {
+    font-size: 3em;
+  }
+  p {
+    font-size: 1.2em;
+    text-align: justify;
+  }
+}
