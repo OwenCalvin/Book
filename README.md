@@ -9,8 +9,8 @@
 npm run pages create
 
 # create multiple new pages
+# example: npm run pages create 3
 npm run pages create n
-for example: npm run pages create 3
 
 # do it if you delete or rename pages
 npm run pages compile
