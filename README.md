@@ -1,10 +1,20 @@
-# vue_spa
+# Book
 
-> A Vue SPA
+> A Vue Book
 
 ## Build Setup
 
 ``` bash
+# create one new pages
+npm run pages create
+
+# create multiple new pages
+npm run pages create n
+for example: npm run pages create 3
+
+# do it if you delete or rename pages
+npm run pages compile
+
 # install dependencies
 npm install
 
