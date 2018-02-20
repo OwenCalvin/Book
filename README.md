@@ -1,7 +1,8 @@
 # Book, a vue book
 With Book you can create your own book simply, with 2 commands  
 ``` bash
-npm run pages create [n]  
+# Create one page:
+npm run pages create
 
 # do it after creating, deleting or renaming a page file)
 npm run pages compile
@@ -10,7 +11,7 @@ npm run pages compile
 ## How it works ?
 Each Vue components (page) are loaded/unloaded dynamicaly. In a web client you can't use fs to get a component file so you need to reference it to a file...  
 **compile** command do it automaticaly, the function get all pages in the folder: *src/articles/pages/pages* and reference it into **Articles.js** (*src/articles/*) file (JSON format).  
-Then... *Loader.js* use this file to load view and page number, into Article.vue components (*/src/components/Article.vue*)
+Then... *Loader.js* use this file to load view and page number, into Article.vue component (*/src/components/Article.vue*)
 
 ## Costum your pages
 All pages can be customize, you can use sass, css, html, vue components, ... in your pages.  
