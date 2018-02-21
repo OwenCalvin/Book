@@ -1,26 +1,24 @@
-import Articles from './Articles'
+import PagesInfos from './pagesInfos'
 
 export default class Loader {
-  // Return the number of articles
   static get Count () {
-    return Articles.length
+    return PagesInfos.totalPages
   }
 
   // Turn a page
   static TurnPage (actualPage, value) {
     let newPage = actualPage + value
-    return (newPage <= Loader.Count && newPage > 0) ? newPage : actualPage
+    return (newPage <= PagesInfos.totalPages && newPage > 0) ? newPage : actualPage
   }
 
   // Load view from JSON datas
   static LoadView (page) {
-    return Loader.Load(page).view
+    let importFile = `${PagesInfos.path + PagesInfos.fileName + page + PagesInfos.extension}`
+    return () => import(`${importFile}`)
   }
 
-  // Load datas from JSON file
-  static Load (page) {
-    return Articles.find(article => {
-      return parseInt(article.page) === parseInt(page)
-    })
+  // Return tru if page exists
+  static PageExists (page) {
+    return page <= PagesInfos.totalPages && page > 0
   }
 }

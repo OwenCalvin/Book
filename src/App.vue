@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <Article/>
+    <Pager/>
   </div>
 </template>
 
 <script>
-import Article from './components/Article.vue'
+import Pager from './components/Pager.vue'
 
 export default {
   name: 'App',
-  components: { Article }
+  components: { Pager }
 }
 </script>
 

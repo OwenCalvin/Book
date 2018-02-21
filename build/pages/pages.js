@@ -4,7 +4,7 @@ const colors = require('colors')
 const separate = '_'
 const pageName = 'Page' + separate
 const pageExtension = '.vue'
-const articlesFile = 'Articles.js'
+const articlesFile = 'pagesInfos.js'
 const articlePath = './src/articles/'
 const pagesFolder = articlePath + 'pages/pages/'
 const relativePathForArticlesJS = './pages/pages/'
@@ -48,12 +48,13 @@ function compile () {
     if (err) {
       console.log(err)
     } else {
-      let stdout = '/* eslint-disable */\nexport default ['
+      let stdout = `/* eslint-disable */\nexport default {path: '${relativePathForArticlesJS}', fileName: '${pageName}', extension: '${pageExtension}', totalPages: `
+      let totalPages = 0
       files.forEach(file => {
         let fileInfos = getFileInfos(file)
         if (fileInfos.pageBase === 'page' && fileInfos.pageExtension === 'vue') {
           if (fileInfos.pageNumber <= files.length && fileInfos.pageNumber > 0) {
-            stdout += `{ page: ${fileInfos.pageNumber}, view: () => import('${relativePathForArticlesJS + file}') },`
+            totalPages += 1
           } else {
             console.log(colors.red('The page number is not correct' + fileInfos.pageNumber))
             logCorrect()
@@ -63,7 +64,7 @@ function compile () {
           logCorrect()
         }
       })
-      stdout += ']\n'
+      stdout += totalPages + '}\n'
 
       console.log(colors.green('\nTout est okay !'))
       console.log(colors.green('(Les fichiers contenants des erreurs sont ignorés)\n'))

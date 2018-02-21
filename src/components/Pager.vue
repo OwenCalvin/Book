@@ -16,8 +16,16 @@
       </div>
       <div class="controls">
         <div class="PT" id="PTPrev" >
-          <button :class="{disable: Page <= 1}" @click="previous" @keydown.37="previous">Previous</button>
+          <button :class="{disable: Page <= 1}" @click="previous" @keydown.37="previous">
+            <svg version="1.1" id="Capa_1" width="25px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 31.494 31.494" style="enable-background:new 0 0 31.494 31.494;" xml:space="preserve">
+              <path d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554
+              c0.619,0,1.127,0.492,1.127,1.111c0,0.619-0.508,1.127-1.127,1.127H3.813l8.047,8.032c0.429,0.444,0.429,1.159,0,1.587
+              c-0.444,0.444-1.143,0.444-1.587,0l-9.952-9.952c-0.429-0.429-0.429-1.143,0-1.571L10.273,5.009z"/>
+            </svg>
+          </button>
         </div>
+
         <div class="backPB">
           <div :style="{width: Progression + '%'}" class="PB">
             <div v-if="Progression > 0">
@@ -25,19 +33,27 @@
             </div>
           </div>
         </div>
+
         <div class="PT" id="PTNext">
-          <button :class="{disable: Page >= TotalPage}" @click="next" @keydown.39="next">Next</button>
+          <button :class="{disable: Page >= TotalPage}" @click="next" @keydown.39="next">
+            <svg version="1.1" id="Capa_1" width="25px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 31.494 31.494" style="enable-background:new 0 0 31.494 31.494;" xml:space="preserve">
+              <path d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554
+              c0.619,0,1.127,0.492,1.127,1.111c0,0.619-0.508,1.127-1.127,1.127H3.813l8.047,8.032c0.429,0.444,0.429,1.159,0,1.587
+              c-0.444,0.444-1.143,0.444-1.587,0l-9.952-9.952c-0.429-0.429-0.429-1.143,0-1.571L10.273,5.009z"/>
+            </svg>
+          </button>
         </div>
-        </div>
+      </div>
     </footer>
   </div>
 </template>
 
 <script>
-import Loader from '../Articles/Loader'
+import Loader from '../articles/loader'
 
 export default {
-  name: 'Article',
+  name: 'Pager',
   data: function () {
     let Page = 1
     return {
@@ -119,14 +135,19 @@ export default {
 
       .PT button {
         height: $buttonHeight;
-        min-width: 100px;
-        background: #e4e4e4;
+        min-width: 75px;
+        background: #ebebeb;
         border: none;
-        font-size: 1em;
-        color: rgb(134, 134, 134);
-        font-weight: 700;
         border-radius: 10px;
         margin: $margin;
+        line-height: 1em;
+        svg {
+          fill: #868686;
+        }
+      }
+
+      #PTNext {
+        transform: rotate(180deg)
       }
 
       .backPB {
