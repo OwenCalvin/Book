@@ -1,4 +1,6 @@
-# Book, a vue book
+# Book, a vue book  
+**Demo at https://ven.daven.io/**  
+
 With Book you can create your own book simply, with 2 commands  
 ``` bash
 # Create one page
@@ -10,8 +12,8 @@ npm run pages compile
 
 ## How it works ?
 Each Vue components (page) are loaded/unloaded dynamicaly. In a web client you can't use fs to get a component file so you need to reference it to a file...  
-**compile** command do it automaticaly, the function get all pages in the folder: *src/articles/pages/pages* and reference it into **Articles.js** (*src/articles/*) file (JSON format).  
-Then... *Loader.js* use this file to load view and page number, into Article.vue component (*/src/components/Article.vue*)
+**compile** command do it automaticaly, the function get all pages in the folder: *src/articles/pages/pages* and reference it into **pagesInfos.js** (*src/articles/*) file (JSON format).  
+Then... *loader.js* use this file to load view and page number, into Article.vue component (*/src/components/Article.vue*)
 
 ## Costum your pages
 All pages can be customize, you can use sass, css, html, vue components, ... in your pages.  
@@ -31,14 +33,14 @@ You can add your own and add it into the bottom of your page file
 **page.scss (pages default style):**  
 *src/articles/pages/style/page.scss*    
 
-**Article.vue (Where pages are loaded):**  
-*/src/components/Articles.js*  
+**Pager.vue (Where pages are loaded):**  
+*/src/components/Pager.vue*  
 
-**Loader.js:**  
-*src/articles/pages/pages/Loader.js*   
+**loader.js:**  
+*src/articles/pages/pages/loader.js*   
 
-**Articles.js (do not touch this file):**  
-*src/articles/pages/Articles.js*   
+**pagesInfos.js (do not touch this file):**  
+*src/articles/pages/pagesInfos.js*   
 
 **App.vue (Main vue, and style):**  
 *src/App.vue*    
