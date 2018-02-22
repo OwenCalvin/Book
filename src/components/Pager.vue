@@ -5,7 +5,7 @@
       <button id="expand" @click="FullScreen = !FullScreen">
         <svg width="30px" version="1.1" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 75 75" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 64 64">
           <g>
-            <g fill="#bbb">
+            <g :style="{fill: FullScreen ? '#555' : '#bbb'}">
               <path d="m62,45c-1.105,0-2,0.896-2,2v13h-13c-1.105,0-2,0.895-2,2s0.895,2 2,2h15c1.105,0 2-0.895 2-2v-15c0-1.104-0.895-2-2-2z"/>
               <path d="m17,60h-13v-13c0-1.104-0.895-2-2-2s-2,0.896-2,2v15c0,1.105 0.895,2 2,2h15c1.105,0 2-0.895 2-2s-0.895-2-2-2z"/>
               <path d="m17-.001h-15c-1.105,0-2,0.896-2,2v15c0,1.104 0.895,2 2,2s2-0.896 2-2v-13h13c1.105,0 2-0.896 2-2s-0.895-2-2-2z"/>
@@ -98,7 +98,7 @@ export default {
   mounted: function () {
     let _this = this
     window.addEventListener('keydown', function (event) {
-      event.preventDefault()
+      console.log('x')
       switch (event.keyCode) {
         // Right arrow
         case 37:
@@ -124,6 +124,12 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+  @mixin responsive() {
+    @media (max-width: 480px) {
+      @content;
+    }
+  }
+
   #all {
     margin-bottom: 100px;
   }
@@ -149,17 +155,24 @@ export default {
       justify-content: space-between;
       flex-wrap: wrap;
 
+      .PT {
+        margin: $margin;
+        min-width: 75px;
+        @include responsive() {
+          min-width: 80%;
+        }
+      }
+
       .PT button {
         height: $buttonHeight;
-        min-width: 75px;
         background: #ebebeb;
         border: none;
         border-radius: 10px;
-        margin: $margin;
         svg {
           line-height: 1em;
           fill: #868686;
         }
+        width: 100%;
       }
 
       #PTNext {
@@ -177,6 +190,7 @@ export default {
         background: rgb(240, 240, 240);
         border-radius: 20px;
         overflow: hidden;
+
         .PB {
           text-align: center;
           font-weight: bold;
@@ -190,6 +204,18 @@ export default {
           color: white;
           line-height: $PBHeight;
         }
+
+        @include responsive() {
+          min-width: 80%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      @include responsive() {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
@@ -203,15 +229,21 @@ export default {
     margin-bottom: 50px;
     display: flex;
     justify-content: space-between;
+
     img {
       margin-top: $HeaderHeight / 2 - $ContentHeight / 2;
       height: $ContentHeight;
       padding-left: 20px;
     }
+
     #expand svg {
       margin-top: $HeaderHeight / 2 - $ContentHeight / 2;
       height: $ContentHeight;
       padding-right: 20px;
+    }
+
+    #expand {
+      transition: all .2s;
     }
   }
 
