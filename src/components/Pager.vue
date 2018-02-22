@@ -3,7 +3,7 @@
     <header>
       <img src="../assets/logo.png" alt="Vue"/>
       <button id="expand" @click="FullScreen = !FullScreen">
-        <svg width="30px" version="1.1" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 64 64" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 64 64">
+        <svg width="30px" version="1.1" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 75 75" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 64 64">
           <g>
             <g fill="#bbb">
               <path d="m62,45c-1.105,0-2,0.896-2,2v13h-13c-1.105,0-2,0.895-2,2s0.895,2 2,2h15c1.105,0 2-0.895 2-2v-15c0-1.104-0.895-2-2-2z"/>
@@ -98,6 +98,7 @@ export default {
   mounted: function () {
     let _this = this
     window.addEventListener('keydown', function (event) {
+      event.preventDefault()
       switch (event.keyCode) {
         // Right arrow
         case 37:
@@ -171,8 +172,8 @@ export default {
         height: $PBHeight;
         margin: 0 10px;
         margin-top: ($buttonHeight + 2 * $margin) / 2 - $PBHeight / 2;
-        width: 30%;
-        min-width: 200px;
+        width: 40%;
+        min-width: 250px;
         background: rgb(240, 240, 240);
         border-radius: 20px;
         overflow: hidden;
