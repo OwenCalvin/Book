@@ -23,9 +23,27 @@ export default {
     color: #2c3e50;
   }
 
+  ::selection {
+    background: #2c3e50;
+    color: white;
+  }
+
+  ::-moz-selection {
+    background: #2c3e50;
+    color: white;
+  }
+
   body {
     margin: 0;
     padding: 0;
+  }
+
+  button {
+    background: none;
+    border: none;
+    padding: none;
+    margin: none;
+    outline: none;
   }
 
   .textCenter {

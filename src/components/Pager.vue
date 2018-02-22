@@ -1,7 +1,19 @@
 <template>
-  <div id="all" @keydown.enter="alert('hi')">
+  <div id="all">
     <header>
       <img src="../assets/logo.png" alt="Vue"/>
+      <button id="expand" @click="FullScreen = !FullScreen">
+        <svg width="30px" version="1.1" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 64 64" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 64 64">
+          <g>
+            <g fill="#bbb">
+              <path d="m62,45c-1.105,0-2,0.896-2,2v13h-13c-1.105,0-2,0.895-2,2s0.895,2 2,2h15c1.105,0 2-0.895 2-2v-15c0-1.104-0.895-2-2-2z"/>
+              <path d="m17,60h-13v-13c0-1.104-0.895-2-2-2s-2,0.896-2,2v15c0,1.105 0.895,2 2,2h15c1.105,0 2-0.895 2-2s-0.895-2-2-2z"/>
+              <path d="m17-.001h-15c-1.105,0-2,0.896-2,2v15c0,1.104 0.895,2 2,2s2-0.896 2-2v-13h13c1.105,0 2-0.896 2-2s-0.895-2-2-2z"/>
+              <path d="m62-.001h-15c-1.105,0-2,0.896-2,2s0.895,2 2,2h13v13c0,1.104 0.895,2 2,2s2-0.896 2-2v-15c0-1.104-0.895-2-2-2z"/>
+            </g>
+          </g>
+        </svg>
+      </button>
     </header>
 
     <div id="component">
@@ -10,42 +22,44 @@
       </transition>
     </div>
 
-    <footer>
-      <div class="pageStatus textCenter">
-        {{ Page }} / {{ TotalPage }}
-      </div>
-      <div class="controls">
-        <div class="PT" id="PTPrev" >
-          <button :class="{disable: Page <= 1}" @click="previous" @keydown.37="previous">
-            <svg version="1.1" id="Capa_1" width="25px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-              viewBox="0 0 31.494 31.494" style="enable-background:new 0 0 31.494 31.494;" xml:space="preserve">
-              <path d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554
-              c0.619,0,1.127,0.492,1.127,1.111c0,0.619-0.508,1.127-1.127,1.127H3.813l8.047,8.032c0.429,0.444,0.429,1.159,0,1.587
-              c-0.444,0.444-1.143,0.444-1.587,0l-9.952-9.952c-0.429-0.429-0.429-1.143,0-1.571L10.273,5.009z"/>
-            </svg>
-          </button>
+    <transition name="component-fade">
+      <footer v-if="!FullScreen">
+        <div class="pageStatus textCenter">
+          {{ Page }} / {{ TotalPage }}
         </div>
+        <div class="controls">
+          <div class="PT" id="PTPrev" >
+            <button :class="{disable: Page <= 1}" @click="previous" @keydown.37="previous">
+              <svg version="1.1" id="Capa_1" width="25px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 28 28" style="enable-background:new 0 0 30 30;" xml:space="preserve">
+                <path d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554
+                c0.619,0,1.127,0.492,1.127,1.111c0,0.619-0.508,1.127-1.127,1.127H3.813l8.047,8.032c0.429,0.444,0.429,1.159,0,1.587
+                c-0.444,0.444-1.143,0.444-1.587,0l-9.952-9.952c-0.429-0.429-0.429-1.143,0-1.571L10.273,5.009z"/>
+              </svg>
+            </button>
+          </div>
 
-        <div class="backPB">
-          <div :style="{width: Progression + '%'}" class="PB">
-            <div v-if="Progression > 0">
-              {{ Progression }} %
+          <div class="backPB">
+            <div :style="{width: Progression + '%'}" class="PB">
+              <div v-if="Progression > 0">
+                {{ Progression }} %
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="PT" id="PTNext">
-          <button :class="{disable: Page >= TotalPage}" @click="next" @keydown.39="next">
-            <svg version="1.1" id="Capa_1" width="25px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-              viewBox="0 0 31.494 31.494" style="enable-background:new 0 0 31.494 31.494;" xml:space="preserve">
-              <path d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554
-              c0.619,0,1.127,0.492,1.127,1.111c0,0.619-0.508,1.127-1.127,1.127H3.813l8.047,8.032c0.429,0.444,0.429,1.159,0,1.587
-              c-0.444,0.444-1.143,0.444-1.587,0l-9.952-9.952c-0.429-0.429-0.429-1.143,0-1.571L10.273,5.009z"/>
-            </svg>
-          </button>
+          <div class="PT" id="PTNext">
+            <button :class="{disable: Page >= TotalPage}" @click="next" @keydown.39="next">
+              <svg version="1.1" id="Capa_1" width="25px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 28 28" style="enable-background:new 0 0 31.494 31.494;" xml:space="preserve">
+                <path d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554
+                c0.619,0,1.127,0.492,1.127,1.111c0,0.619-0.508,1.127-1.127,1.127H3.813l8.047,8.032c0.429,0.444,0.429,1.159,0,1.587
+                c-0.444,0.444-1.143,0.444-1.587,0l-9.952-9.952c-0.429-0.429-0.429-1.143,0-1.571L10.273,5.009z"/>
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </transition>
   </div>
 </template>
 
@@ -57,6 +71,7 @@ export default {
   data: function () {
     let Page = 1
     return {
+      FullScreen: false,
       Page: Page,
       TotalPage: Loader.Count
     }
@@ -140,8 +155,8 @@ export default {
         border: none;
         border-radius: 10px;
         margin: $margin;
-        line-height: 1em;
         svg {
+          line-height: 1em;
           fill: #868686;
         }
       }
@@ -180,17 +195,22 @@ export default {
 
   header {
     $HeaderHeight: 50px;
-
-    text-align: center;
+    $ContentHeight: 30px;
     width: 100%;
     height: $HeaderHeight;
     box-shadow: 2px 4px 17px 0px rgb(235, 235, 235);
     margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
     img {
-      $ImgHeight: 30px;
-
-      margin-top: $HeaderHeight / 2 - $ImgHeight / 2;
-      height: $ImgHeight;
+      margin-top: $HeaderHeight / 2 - $ContentHeight / 2;
+      height: $ContentHeight;
+      padding-left: 20px;
+    }
+    #expand svg {
+      margin-top: $HeaderHeight / 2 - $ContentHeight / 2;
+      height: $ContentHeight;
+      padding-right: 20px;
     }
   }
 
