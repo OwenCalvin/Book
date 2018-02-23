@@ -1,0 +1,132 @@
+@import './responsive.scss';
+
+#all {
+    margin-bottom: 100px;
+}
+
+footer {
+    box-shadow: -2px 1px 17px 0px rgb(240, 240, 240);
+    background: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+
+    .pageStatus {
+        font-weight: bold;
+        padding-top: 10px;
+    }
+
+    .controls {
+        $buttonHeight: 30px;
+        $margin: 10px;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .PT {
+            margin: $margin;
+            min-width: 75px;
+            @include responsive() {
+                min-width: 80%;
+            }
+        }
+
+        .PT button {
+            width: 100%;
+            height: $buttonHeight;
+            background: #ebebeb;
+            border: none;
+            border-radius: 10px;
+            svg {
+                line-height: 1em;
+                fill: #868686;
+            }
+        }
+
+        #PTNext {
+            transform: rotate(180deg)
+        }
+
+        .backPB {
+            $PBHeight: 20px;
+
+            height: $PBHeight;
+            margin: 0 10px;
+            margin-top: ($buttonHeight + 2 * $margin) / 2 - $PBHeight / 2;
+            width: 40%;
+            min-width: 250px;
+            background: rgb(240, 240, 240);
+            border-radius: 20px;
+            overflow: hidden;
+
+            .PB {
+                text-align: center;
+                font-weight: bold;
+                height: $PBHeight;
+                background: #54d78e;
+                background: -moz-linear-gradient(-45deg, #54d78e 0%, #39dc84 100%);
+                background: -webkit-linear-gradient(-45deg, #54d78e 0%,#39dc84 100%);
+                background: linear-gradient(135deg, #54d78e 0%,#39dc84 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54d78e', endColorstr='#39dc84',GradientType=1 );
+                transition: width .2s;
+                color: white;
+                line-height: $PBHeight;
+            }
+
+            @include responsive() {
+                min-width: 80%;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+        }
+
+        @include responsive() {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.page {
+    @include responsive() {
+        padding: 0;
+    }
+}
+
+header {
+    $HeaderHeight: 50px;
+    $ContentHeight: 30px;
+    width: 100%;
+    height: $HeaderHeight;
+    box-shadow: 2px 4px 17px 0px rgb(235, 235, 235);
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+
+    img {
+        margin-top: $HeaderHeight / 2 - $ContentHeight / 2;
+        height: $ContentHeight;
+        padding-left: 20px;
+    }
+
+    #expand svg {
+        margin-top: $HeaderHeight / 2 - $ContentHeight / 2;
+        height: $ContentHeight;
+        padding-right: 20px;
+    }
+
+    #expand {
+        transition: all .2s;
+    }
+}
+
+.text-center {
+    text-align: center
+}
+
+.disable {
+    opacity: .5;
+}

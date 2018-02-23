@@ -5,5 +5,5 @@
   </div>
 </template>
 <style lang="scss" scoped>
-  @import '../style/page.scss';
+  @import '../../style/page.scss';
 </style>

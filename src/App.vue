@@ -1,5 +1,5 @@
 <template>
-  <div id="app" @keydown="alert('hi')">
+  <div id="app">
     <Pager/>
   </div>
 </template>
@@ -13,40 +13,6 @@ export default {
 }
 </script>
 
-<style>
-  @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
-
-  #app {
-    font-family: 'Roboto', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-  }
-
-  ::selection {
-    background: #2c3e50;
-    color: white;
-  }
-
-  ::-moz-selection {
-    background: #2c3e50;
-    color: white;
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
-  button {
-    background: none;
-    border: none;
-    padding: none;
-    margin: none;
-    outline: none;
-  }
-
-  .textCenter {
-    text-align: center;
-  }
+<style lang="scss">
+  @import './style/main.scss';
 </style>

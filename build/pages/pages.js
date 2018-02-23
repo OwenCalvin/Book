@@ -1,13 +1,14 @@
 const fs = require('fs')
 const colors = require('colors')
 
+const pageBaseName = 'Page'
 const separate = '_'
-const pageName = 'Page' + separate
-const pageExtension = '.vue'
+const pageName = pageBaseName + separate
+const pageExtension = 'vue'
 const articlesFile = 'pagesInfos.js'
-const articlePath = './src/articles/'
-const pagesFolder = articlePath + 'pages/pages/'
-const relativePathForArticlesJS = './pages/pages/'
+const articlePath = './src/pager/'
+const pagesFolder = articlePath + 'pages/'
+const relativePathForArticlesJS = './pages/'
 const templatePath = './build/pages/Template.vue'
 
 switch (process.argv[2]) {
@@ -52,11 +53,11 @@ function compile () {
       let totalPages = 0
       files.forEach(file => {
         let fileInfos = getFileInfos(file)
-        if (fileInfos.pageBase === 'page' && fileInfos.pageExtension === 'vue') {
+        if (fileInfos.pageBase === pageBaseName && fileInfos.pageExtension === pageExtension) {
           if (fileInfos.pageNumber <= files.length && fileInfos.pageNumber > 0) {
             totalPages += 1
           } else {
-            console.log(colors.red('The page number is not correct' + fileInfos.pageNumber))
+            console.log(colors.red('Le numéro de page est incorrect ' + fileInfos.pageNumber))
             logCorrect()
           }
         } else {
@@ -78,7 +79,7 @@ function compile () {
 }
 
 function getNewFileName (pageNumber) {
-  return pageName + pageNumber + pageExtension
+  return pageName + pageNumber + '.' + pageExtension
 }
 
 function logCorrect (extra = '') {
@@ -86,12 +87,12 @@ function logCorrect (extra = '') {
 }
 
 function getFileInfos (file) {
-  let fileName = file.toLowerCase() // page_4
-  let pageFilesInfos = fileName.split('.') // [0] = page_1234  [1] = vue
+  let fileName = file // Page_1234.vue
+  let pageFilesInfos = fileName.split('.') // [0] = Page_1234  [1] = vue
   let pageExtension = pageFilesInfos[pageFilesInfos.length - 1] // vue
-  let pageArgs = pageFilesInfos[0].split(separate) // [0] = page  [1] = 1234
+  let pageArgs = pageFilesInfos[0].split(separate) // [0] = Page  [1] = 1234
   let pageNumber = parseInt(pageArgs[1]) // 1234
-  let pageBase = pageArgs[0] // page
+  let pageBase = pageArgs[0] // Page
 
   return {
     fileName: fileName,

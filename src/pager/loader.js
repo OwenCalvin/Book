@@ -8,16 +8,16 @@ export default class Loader {
   // Turn a page
   static TurnPage (actualPage, value) {
     let newPage = actualPage + value
-    return (newPage <= PagesInfos.totalPages && newPage > 0) ? newPage : actualPage
+    return Loader.PageExists(newPage) ? newPage : actualPage
   }
 
   // Load view from JSON datas
   static LoadView (page) {
-    let importFile = `${PagesInfos.path + PagesInfos.fileName + page + PagesInfos.extension}`
+    let importFile = `${PagesInfos.path + PagesInfos.fileName + page + '.' + PagesInfos.extension}`
     return () => import(`${importFile}`)
   }
 
-  // Return tru if page exists
+  // Return true if page exists
   static PageExists (page) {
     return page <= PagesInfos.totalPages && page > 0
   }
