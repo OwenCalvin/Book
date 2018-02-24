@@ -6,7 +6,7 @@ With Book you can create your own book simply, with 2 commands
 # Create one page
 npm run pages create
 
-# do it after creating (with pages create command), deleting or renaming a page file)
+# do it after creating (with pages create command), deleting or renaming a page file
 npm run pages compile
 ``` 
 
