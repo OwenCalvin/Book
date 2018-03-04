@@ -28,28 +28,28 @@ You can add your own and add it into the bottom of your page file
 
 ## File location
 **Pages:**  
-*src/pager/pages/*    
+*./src/pager/pages/*    
 
 **page.scss (pages default style):**  
-*src/style/page.scss*    
+*./src/style/page.scss*    
 
 **Pager.vue (Where pages are loaded):**  
-*/src/components/Pager.vue*  
+*./src/components/Pager.vue*  
 
 **loader.js:**  
-*src/pager/loader.js*   
+*./src/pager/loader.js*   
 
 **pagesInfos.js (do not touch this file):**  
-*src/pager/pagesInfos.js*   
+*./src/pager/pagesInfos.js*   
 
 **App.vue (Main vue, and style):**  
-*src/App.vue*    
+*./src/App.vue*    
 
 **pages.js (Compiler, and pages creating tool):**  
-*/build/pages/pages.js*   
+*./build/pages/pages.js*   
 
 **Template.vue (The default page, when you create some pages -> custom it):**  
-*/build/pages/Template.vue*
+*./build/pages/Template.vue*
 
 ## Commands
 
