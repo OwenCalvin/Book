@@ -30,7 +30,8 @@ function create () {
     if (err) {
       console.log(err)
     } else {
-      let iterations = process.argv[3] ? process.argv[3] : 1
+      let number = Math.abs(parseInt(process.argv[3]))
+      let iterations = number ? number : 1
       for (let i = 0; i < iterations; i++) {
         let newFileName = getNewFileName(files.length + i + 1)
         fs.copyFile(templatePath, pagesFolder + newFileName, err => {
