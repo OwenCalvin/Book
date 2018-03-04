@@ -8,7 +8,15 @@ export default class Loader {
   // Turn a page
   static TurnPage (actualPage, value) {
     let newPage = actualPage + value
-    return Loader.PageExists(newPage) ? newPage : actualPage
+    if (Loader.PageExists(newPage)) {
+      return newPage
+    } else {
+      if (newPage <= 0) {
+        return Loader.Count
+      } else if (newPage > Loader.Count) {
+        return 1
+      }
+    }
   }
 
   // Load view from JSON datas
