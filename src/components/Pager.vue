@@ -1,20 +1,22 @@
 <template>
   <div id="all">
-    <header>
-      <img src="../assets/logo.png" alt="Vue"/>
-      <button id="expand" @click="FullScreen = !FullScreen">
-        <svg width="30px" version="1.1" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 75 75" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 64 64">
-          <g>
-            <g :style="{fill: FullScreen ? '#555' : '#bbb'}">
-              <path d="m62,45c-1.105,0-2,0.896-2,2v13h-13c-1.105,0-2,0.895-2,2s0.895,2 2,2h15c1.105,0 2-0.895 2-2v-15c0-1.104-0.895-2-2-2z"/>
-              <path d="m17,60h-13v-13c0-1.104-0.895-2-2-2s-2,0.896-2,2v15c0,1.105 0.895,2 2,2h15c1.105,0 2-0.895 2-2s-0.895-2-2-2z"/>
-              <path d="m17-.001h-15c-1.105,0-2,0.896-2,2v15c0,1.104 0.895,2 2,2s2-0.896 2-2v-13h13c1.105,0 2-0.896 2-2s-0.895-2-2-2z"/>
-              <path d="m62-.001h-15c-1.105,0-2,0.896-2,2s0.895,2 2,2h13v13c0,1.104 0.895,2 2,2s2-0.896 2-2v-15c0-1.104-0.895-2-2-2z"/>
+    <headroom>
+      <header>
+        <img src="../assets/logo.png" alt="Vue"/>
+        <button id="expand" @click="FullScreen = !FullScreen">
+          <svg width="30px" version="1.1" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 75 75" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 64 64">
+            <g>
+              <g :style="{fill: FullScreen ? '#555' : '#bbb'}">
+                <path d="m62,45c-1.105,0-2,0.896-2,2v13h-13c-1.105,0-2,0.895-2,2s0.895,2 2,2h15c1.105,0 2-0.895 2-2v-15c0-1.104-0.895-2-2-2z"/>
+                <path d="m17,60h-13v-13c0-1.104-0.895-2-2-2s-2,0.896-2,2v15c0,1.105 0.895,2 2,2h15c1.105,0 2-0.895 2-2s-0.895-2-2-2z"/>
+                <path d="m17-.001h-15c-1.105,0-2,0.896-2,2v15c0,1.104 0.895,2 2,2s2-0.896 2-2v-13h13c1.105,0 2-0.896 2-2s-0.895-2-2-2z"/>
+                <path d="m62-.001h-15c-1.105,0-2,0.896-2,2s0.895,2 2,2h13v13c0,1.104 0.895,2 2,2s2-0.896 2-2v-15c0-1.104-0.895-2-2-2z"/>
+              </g>
             </g>
-          </g>
-        </svg>
-      </button>
-    </header>
+          </svg>
+        </button>
+      </header>
+    </headroom>
 
     <div id="component">
       <transition name="component-fade" mode="out-in">
@@ -65,6 +67,7 @@
 
 <script>
 import Loader from '../pager/loader'
+import { headroom } from 'vue-headroom'
 
 export default {
   name: 'Pager',
@@ -109,6 +112,9 @@ export default {
           break
       }
     })
+  },
+  components: {
+    headroom
   }
 }
 </script>

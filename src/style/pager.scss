@@ -1,6 +1,7 @@
 @import './responsive.scss';
 
 #all {
+    margin-top: 100px;
     margin-bottom: 100px;
 }
 
@@ -102,6 +103,8 @@ footer {
 }
 
 header {
+    z-index: 999;
+    background: white;
     $HeaderHeight: 50px;
     $ContentHeight: 30px;
     width: 100%;
