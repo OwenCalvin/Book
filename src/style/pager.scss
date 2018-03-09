@@ -3,6 +3,9 @@
 #all {
     margin-top: 100px;
     margin-bottom: 100px;
+    @include responsive() {
+        margin-bottom: 175px;
+    }
 }
 
 footer {
