@@ -34,15 +34,20 @@ footer {
         }
 
         .PT button {
+            cursor: pointer;
             width: 100%;
             height: $buttonHeight;
             background: #ebebeb;
             border: none;
             border-radius: 10px;
+            transition: .2s background;
             svg {
                 line-height: 1em;
                 fill: #868686;
             }
+            &:hover {
+                background: #e4e4e4;
+            }          
         }
 
         #PTNext {
@@ -125,8 +130,4 @@ header {
 
 .text-center {
     text-align: center
-}
-
-.disable {
-    opacity: .5;
 }

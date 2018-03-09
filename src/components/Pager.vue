@@ -29,7 +29,7 @@
         </div>
         <div class="controls">
           <div class="PT" id="PTPrev" >
-            <button :class="{disable: Page <= 1}" @click="previous" @keydown.37="previous">
+            <button @click="previous" @keydown.37="previous">
               <svg version="1.1" id="Capa_1" width="25px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 28 28" style="enable-background:new 0 0 30 30;" xml:space="preserve">
                 <path d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554
@@ -48,7 +48,7 @@
           </div>
 
           <div class="PT" id="PTNext">
-            <button :class="{disable: Page >= TotalPage}" @click="next" @keydown.39="next">
+            <button @click="next" @keydown.39="next">
               <svg version="1.1" id="Capa_1" width="25px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 28 28" style="enable-background:new 0 0 31.494 31.494;" xml:space="preserve">
                 <path d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554
