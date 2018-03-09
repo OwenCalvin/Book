@@ -1,7 +1,11 @@
 @import './responsive.scss';
 
 #all {
+    transition: .2s margin;
     margin-top: 100px;
+}
+
+.margin {
     margin-bottom: 100px;
     @include responsive() {
         margin-bottom: 175px;

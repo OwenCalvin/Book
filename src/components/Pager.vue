@@ -1,5 +1,5 @@
 <template>
-  <div id="all">
+  <div id="all" :class="{margin: !FullScreen}">
     <headroom>
       <header>
         <img src="../assets/logo.png" alt="Vue"/>
