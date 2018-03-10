@@ -18,13 +18,13 @@
       </header>
     </headroom>
 
-    <v-touch v-on:swipeleft="next" v-on:swiperight="previous">
       <div id="component">
-        <transition name="component-fade" mode="out-in">
-          <component :is="View"></component>
-        </transition>
+        <v-touch v-on:swipeleft="next" v-on:swiperight="previous">
+          <transition name="component-fade" mode="out-in">
+              <component :is="View"></component>
+          </transition>
+        </v-touch>
       </div>
-    </v-touch>
 
     <transition name="component-fade">
       <footer v-if="!FullScreen">
