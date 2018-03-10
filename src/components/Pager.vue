@@ -19,9 +19,10 @@
     </headroom>
 
       <div id="component">
-        <v-touch v-on:swipeleft="next" v-on:swiperight="previous">
+        {{ swipeOptions.enable }}
+        <v-touch @swipeleft="next" @swiperight="previous" :options="swipeOptions">
           <transition name="component-fade" mode="out-in">
-              <component :is="View"></component>
+            <component :is="View"></component>
           </transition>
         </v-touch>
       </div>
@@ -70,6 +71,7 @@
 <script>
 import Loader from '../pager/loader'
 import { headroom } from 'vue-headroom'
+import isMobile from 'ismobilejs'
 
 export default {
   name: 'Pager',
@@ -78,7 +80,10 @@ export default {
     return {
       FullScreen: false,
       Page: Page,
-      TotalPage: Loader.Count
+      TotalPage: Loader.Count,
+      swipeOptions: {
+        enable: isMobile.any
+      }
     }
   },
   methods: {
