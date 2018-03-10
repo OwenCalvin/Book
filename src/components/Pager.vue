@@ -19,7 +19,6 @@
     </headroom>
 
       <div id="component">
-        {{ swipeOptions.enable }}
         <v-touch @swipeleft="next" @swiperight="previous" :options="swipeOptions">
           <transition name="component-fade" mode="out-in">
             <component :is="View"></component>
